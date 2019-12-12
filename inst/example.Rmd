@@ -33,6 +33,6 @@ quiz_db <- list(
 ```
 
 
-```{r}
-quizlite(quiz_db)
+```{r, fig.height=10, fig.width=10}
+quizlite_knit(quiz_db, width = "100%", height = 400, units = "cm")
 ```
