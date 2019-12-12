@@ -2,6 +2,7 @@
     padding: 1em;
     max-width: 100%;
     margin: 1em auto;
+    background: #455A64;
 }
 
 .quiz-container a {
@@ -20,7 +21,7 @@
     font-size: 1.25em;
 }
 
-.answers {
+.answers{
     list-style: none;
     padding: 0;
 }
@@ -31,8 +32,11 @@
     margin-bottom: 0.5em;
     background: #fff;
     border-radius: 10px;
+    transition: 0.25s;
 }
-
+.answers a:hover {
+    background:#009688;
+}
 .answers a.correct {
     background: #090;
 }

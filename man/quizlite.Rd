@@ -4,7 +4,7 @@
 \alias{quizlite}
 \title{Create quiz}
 \usage{
-quizlite(quiz_db)
+quizlite(quiz_db, ...)
 }
 \arguments{
 \item{quiz_db}{A nested list}

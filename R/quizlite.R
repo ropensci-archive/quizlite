@@ -6,12 +6,12 @@
 #' @export
 #'
 #'
-quizlite <- function(quiz_db){
+quizlite <- function(quiz_db, ... ){
   dir0 <- tempdir()
-  #x <- sketch::source_r("inst/main.R")
+  #x <- sketch::source_r("inst/unused/main.R")
   html <- system.file("index.html", package = "quizlite")
-  jsonlite::write_json(quiz_db, paste0(dir0, "/quiz_db.json"), auto_unbox = T)
+  jsonlite::write_json(quiz_db, file.path(dir0, "quiz_db.json"), auto_unbox = T)
   file.copy(html, file.path(dir0, "index.html"))
   browseURL(file.path(dir0, "index.html"))
-  #htmltools::doRenderTags(htmltools::tags$iframe(src = file.path(dir0, html), style = "border: none;"))
+  #htmltools::doRenderTags(htmltools::tags$iframe(src = file.path(dir0, "index.html"), ...))
 }

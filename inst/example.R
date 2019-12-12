@@ -19,5 +19,5 @@ quiz_db <- list(
   )
 )
 
-debugonce(quizlite)
+#debugonce(quizlite)
 quizlite(quiz_db)
