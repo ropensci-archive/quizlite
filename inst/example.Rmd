@@ -5,7 +5,7 @@ date: "12/12/2019"
 output: html_document
 ---
 
-```{R}
+```{r}
 library(quizlite)
 ```
 
@@ -30,8 +30,9 @@ quiz_db <- list(
     )
   )
 )
+```
 
 
+```{r}
 quizlite(quiz_db)
-
 ```
