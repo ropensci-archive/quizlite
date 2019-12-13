@@ -1,0 +1,32 @@
+---
+title: "using-quizlite"
+output: rmarkdown::html_vignette
+authors: Mitch Stares, Nick Tierney, Jackson Kwok
+vignette: >
+  %\VignetteIndexEntry{using-quizlite}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(quizlite)
+```
+
+
+```{r example}
+quizlite_knit(question(text = 'wat',
+             answer('Answer 1'),
+             answer('Answer 2',correct = TRUE),
+             answer('Answer 3'),
+             answer('Answer 4')),
+    question(text = 'A new question?',
+             answer('Answer 1'),
+             answer('Answer 2', correct = TRUE)))
+```
