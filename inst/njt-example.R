@@ -38,9 +38,9 @@ answer <- function(text,
 
 }
 
-debugonce(quizlite_test)
+#debugonce(quizlite_test)
 
-list_quiz <-
+quiz_db <-
   quizlite_test(
     question(text = 'wat',
              answer('Answer 1'),
@@ -52,7 +52,7 @@ list_quiz <-
              answer('Answer 2', correct = TRUE))
     )
 
-quizlite(quiz_db = list_quiz)
+quizlite(quiz_db )
 
 
 quizlite2 <- function(...,
@@ -65,7 +65,7 @@ quizlite2 <- function(...,
        questions = purrr::map(.x = dots,
                               .f = compose_q_list,
                               correct_response,
-                              incorrect_response)
+                              incorrect_response) %>% unname()
   )
   dir0 <- tempdir()
   #x <- sketch::source_r("inst/unused/main.R")
@@ -75,13 +75,13 @@ quizlite2 <- function(...,
   browseURL(file.path(dir0, "index.html"))
 }
 
-quizlite(question(text = "What is better?",
+quizlite2(question(text = "What is better?",
                   answer("R", correct = TRUE),
                   answer("Python")
                   ),
          question(text = "Who is awesome?",
-                  answer("I am"),
-                  answer("Not me", correct = TRUE)
+                  answer("I am", correct = TRUE),
+                  answer("Not me")
                   )
          )
 

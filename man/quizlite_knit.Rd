@@ -2,18 +2,37 @@
 % Please edit documentation in R/quizlite.R
 \name{quizlite_knit}
 \alias{quizlite_knit}
-\title{Create knitted quiz}
+\title{Knit a quizlite quiz inside a html_document}
 \usage{
-quizlite_knit(quiz_db, ...)
+quizlite_knit(..., correct_response = "Custom correct response.",
+  incorrect_response = "Custom incorrect response.")
 }
 \arguments{
-\item{quiz_db}{A nested list}
+\item{...}{A series of nested functions. In the form question("A sample question", answer("Answer 1"),
+answer("Answer 2", correct = TRUE)). Question and answer text must be a text string.
+Mark the correct answer with a correct = TRUE.}
 
-\item{...}{Extra functions. e.g. height or width for sizing}
+\item{correct_response}{A text string. Message to give to user when response is correct}
+
+\item{incorrect_response}{A text string. Message to give to user when they are incorrect}
 }
 \value{
 A html quiz inside a knitted html_document
 }
 \description{
-Create knitted quiz
+Knit a quizlite quiz inside a html_document
+}
+\note{
+Currently this will not display when outputted to a browser. It will only display in the viewer pane
+Upload the .html and assests folder to a github or online repository to display in a browser.
+}
+\examples{
+quizlite_knit(question(text = "What is better?",
+                            answer("R", correct = TRUE),
+                            answer("Python"),
+                            answer("Javascript"),
+                            answer("S")),
+                        question(text = "Who is awesome?",
+                            answer("I am", correct = TRUE),
+                            answer("Not me")))
 }

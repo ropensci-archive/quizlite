@@ -1,14 +1,22 @@
 Package: quizlite
-Title: What the Package Does (One Line, Title Case)
+Title: A simple, lightweight, html quiz
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Mitchell",
+           family = "Stares",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
+           email = "mgs996@uowmail.edu.au",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+    person(given = "Jackson",
+           family = "Kwok",
+           role = c("aut", "cre"),
+           email = "mgs996@uowmail.edu.au",
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: What the package does (one paragraph).
 License: What license it uses
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
+Imports: 
+    jsonlite,
+    htmltools

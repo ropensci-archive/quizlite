@@ -2,16 +2,34 @@
 % Please edit documentation in R/quizlite.R
 \name{quizlite}
 \alias{quizlite}
-\title{Create quiz}
+\title{Create a quizlite quiz}
 \usage{
-quizlite(quiz_db, ...)
+quizlite(..., correct_response = "Custom correct response.",
+  incorrect_response = "Custom incorrect response.")
 }
 \arguments{
-\item{quiz_db}{A nested list}
+\item{...}{A series of nested functions. In the form question("A sample question", answer("Answer 1"),
+answer("Answer 2", correct = TRUE)). Question and answer text must be a text string.
+Mark the correct answer with a correct = TRUE.}
+
+\item{correct_response}{A text string. Message to give to user when response is correct}
+
+\item{incorrect_response}{A text string. Message to give to user when they are incorrect}
 }
 \value{
 An html quiz
 }
 \description{
-Create quiz
+Create a quizlite quiz
+}
+\examples{
+quizlite(question(text = "What is better?",
+                            answer("R", correct = TRUE),
+                            answer("Python"),
+                            answer("Javascript"),
+                            answer("S")),
+                   question(text = "Who is awesome?",
+                            answer("I am", correct = TRUE),
+                            answer("Not me")))
+
 }
