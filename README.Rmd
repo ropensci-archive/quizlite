@@ -17,17 +17,11 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of quizlite is to ...
+The goal of quizlite is to generate lightweight quizzes.
 
 ## Installation
 
-You can install the released version of quizlite from [CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages("quizlite")
-```
-
-And the development version from [GitHub](https://github.com/) with:
+You can install the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
@@ -35,25 +29,15 @@ devtools::install_github("ropenscilabs/quizlite")
 ```
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
-
-```{r example}
+```{r quizlite-example}
 library(quizlite)
-## basic example code
+quizlite(question(text = "What is better?",
+                             answer("R", correct = TRUE),
+                             answer("Python"),
+                             answer("Javascript"),
+                             answer("S")),
+                    question(text = "Who is awesome?",
+                             answer("I am", correct = TRUE),
+                             answer("Not me")))
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!

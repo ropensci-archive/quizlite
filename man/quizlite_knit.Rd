@@ -4,8 +4,11 @@
 \alias{quizlite_knit}
 \title{Knit a quizlite quiz inside a html_document}
 \usage{
-quizlite_knit(..., correct_response = "Custom correct response.",
-  incorrect_response = "Custom incorrect response.")
+quizlite_knit(
+  ...,
+  correct_response = "Custom correct response.",
+  incorrect_response = "Custom incorrect response."
+)
 }
 \arguments{
 \item{...}{A series of nested functions. In the form question("A sample question", answer("Answer 1"),

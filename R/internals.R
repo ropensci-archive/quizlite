@@ -9,17 +9,3 @@ compose_q_list <- function(dots,
     incorrectResponse = incorrect_response
   )
 }
-
-question <- function(text,
-                     ...){
-  answers <- rlang::dots_list(...)
-  return(list(q = text, options = unname(unlist(answers))))
-}
-
-answer <- function(text,
-                   correct = NULL){
-
-  list(option = text,
-       correct = correct)
-
-}
