@@ -1,20 +1,30 @@
+compose_q_list <- function(dots,
+                           correct_response,
+                           incorrect_response){
+       questions = list(
+         #counterFormat = 'Question %current of %total', #Do not modify,
+         list(
+           q = dots[["q"]], # this is where our question list structure is generated
+           options = c(dots[["options"]]), # Takes the input from questions list, grabbing the named options vector
+           correctIndex = (match("TRUE", dots[["options"]]) - 2),
+           correctResponse = correct_response,
+           incorrectResponse = incorrect_response
+         )
+       )
+}
+
 quizlite_test <- function(...,
                           correct_response = 'Custom correct response.',
                           incorrect_response = 'Custom incorrect response.'
                           ){
-  dots <- rlang::dots_list(...)[[1]]
+  browser()
+  dots <- rlang::dots_list(...)
+
   list(counterFormat = 'Question %current of %total', #Do not modify,
-  questions = list(
-    #counterFormat = 'Question %current of %total', #Do not modify,
-    list(
-    q = dots[["q"]], # this is where our question list structure is generated
-    options = c(dots[["options"]]), # Takes the input from questions list, grabbing the named options vector
-    correctIndex = (match("TRUE", dots[["options"]]) - 2),
-    correctResponse = correct_response,
-    incorrectResponse = incorrect_response
-  ),
-  list()
-  )
+       purrr::map(.x = dots,
+                  .f = compose_q_list,
+                  correct_response,
+                  incorrect_response)
   )
 }
 
@@ -37,6 +47,14 @@ answer <- function(text,
 }
 
 #debugonce(quizlite_test)
+  quizlite_test(
+    question(text = "What is better?",
+             answer("R", correct = TRUE),
+             answer("Python"))
+  )
+
+
+
 list_quiz <-
   quizlite_test(
     question(text = "What is better?",
