@@ -1,20 +1,19 @@
 Package: quizlite
 Title: A simple, lightweight, html quiz
 Version: 0.0.0.9000
-Authors@R: 
-    person(given = "Mitchell",
+Authors@R: c(person(given = "Mitchell",
            family = "Stares",
            role = c("aut", "cre"),
            email = "mgs996@uowmail.edu.au",
-           comment = c(ORCID = "https://orcid.org/0000-0002-6975-9221"))
+           comment = c(ORCID = "https://orcid.org/0000-0002-6975-9221")),
     person(given = "Chun Fung (Jackson)",
            family = "Kwok",
            role = c("aut"),
-           email = "kwokcf@unimelb.edu.au",
+           email = "kwokcf@unimelb.edu.au"),
     person("Nicholas", "Tierney", 
            role = c("aut"), 
            email = "nicholas.tierney@gmail.com", 
-           comment = c(ORCID = "https://orcid.org/0000-0003-1460-8722"))
+           comment = c(ORCID = "https://orcid.org/0000-0003-1460-8722")))
 Description: Creates a simple, lightweight, html quiz. Can be displayed in browser or knitted to html in an rmarkdown
 License: MIT + file LICENSE
 Encoding: UTF-8

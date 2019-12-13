@@ -372,27 +372,15 @@ summary {
 
 
 <pre class="r"><code>library(quizlite)</code></pre>
-<pre class="r"><code>quiz_db &lt;- list(
-  counterFormat = &#39;Question %current of %total&#39;,
-  questions = list(
-    list(
-      q= &#39;A sample question?&#39;,
-      options= c(&#39;Answer 1&#39;, &#39;Answer 2&#39;, &#39;Answer 3&#39;, &#39;Answer 4&#39;),
-      correctIndex = 1,
-      correctResponse = &#39;Custom correct response.&#39;,
-      incorrectResponse = &#39;Custom incorrect response.&#39;
-    ),
-    list(
-      q= &#39;A new question?&#39;,
-      options= c(&#39;Answer 1&#39;, &#39;Answer 2&#39;),
-      correctIndex = 0,
-      correctResponse = &#39;Custom correct response.&#39;,
-      incorrectResponse = &#39;Custom incorrect response.&#39;
-    )
-  )
-)</code></pre>
-<pre class="r"><code>quizlite_knit(quiz_db, width = &quot;100%&quot;, height = 400, units = &quot;cm&quot;)</code></pre>
-<iframe src="./assests//index.html" width="100%" height="400" units="cm"></iframe>
+<pre class="r"><code>quizlite_knit(question(text = &#39;wat&#39;,
+             answer(&#39;Answer 1&#39;),
+             answer(&#39;Answer 2&#39;,correct = TRUE),
+             answer(&#39;Answer 3&#39;),
+             answer(&#39;Answer 4&#39;)),
+    question(text = &#39;A new question?&#39;,
+             answer(&#39;Answer 1&#39;),
+             answer(&#39;Answer 2&#39;, correct = TRUE)))</code></pre>
+<iframe src="./assests//index.html" width="100%" height="400"></iframe>
 
 
 

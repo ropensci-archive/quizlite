@@ -4,11 +4,8 @@
 \alias{quizlite}
 \title{Create a quizlite quiz}
 \usage{
-quizlite(
-  ...,
-  correct_response = "Custom correct response.",
-  incorrect_response = "Custom incorrect response."
-)
+quizlite(..., correct_response = "Custom correct response.",
+  incorrect_response = "Custom incorrect response.")
 }
 \arguments{
 \item{...}{A series of nested functions. In the form question("A sample question", answer("Answer 1"),

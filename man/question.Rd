@@ -12,7 +12,7 @@ question(text, ...)
 \item{...}{one or more questions or answers}
 }
 \value{
-
+question output
 }
 \description{
 Add multiple choice quiz questions for quizlite. It is used within

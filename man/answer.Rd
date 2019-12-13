@@ -13,7 +13,7 @@ answer(text, correct = NULL)
 is NULL.}
 }
 \value{
-
+answer output
 }
 \description{
 Add multiple choice answers to questions

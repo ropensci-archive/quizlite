@@ -49,6 +49,8 @@ quizlite <- function(...,
 #' Mark the correct answer with a correct = TRUE.
 #' @param correct_response A text string. Message to give to user when response is correct
 #' @param incorrect_response A text string. Message to give to user when they are incorrect
+#' @param width Width for markdown display size.
+#' @param height height for markdown display size.
 #'
 #' @return A html quiz inside a knitted html_document
 #' @note Currently this will not display when outputted to a browser. It will only display in the viewer pane
@@ -65,7 +67,7 @@ quizlite <- function(...,
 #'                             answer("Not me")))
 quizlite_knit <- function(...,
                           correct_response = 'Custom correct response.',
-                          incorrect_response = 'Custom incorrect response.') {
+                          incorrect_response = 'Custom incorrect response.', width = "100%", height = 400) {
   dots <- rlang::dots_list(...)
 
   quiz_db <-
@@ -87,5 +89,5 @@ quizlite_knit <- function(...,
   jsonlite::write_json(quiz_db, file.path(dir0, "quiz_db.json"), auto_unbox = T)
   file.copy(html, file.path(dir0, "index.html"))
   #htmltools::attachDependencies(x = file.path(dir0, "index.html"), value = file.path(dir0, "quiz_db.json"))
-  htmltools::doRenderTags(htmltools::tags$iframe(src = file.path(dir0, "index.html")))
+  htmltools::doRenderTags(htmltools::tags$iframe(src = file.path(dir0, "index.html"), width = width, height = height))
 }

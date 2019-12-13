@@ -4,11 +4,9 @@
 \alias{quizlite_knit}
 \title{Knit a quizlite quiz inside a html_document}
 \usage{
-quizlite_knit(
-  ...,
-  correct_response = "Custom correct response.",
-  incorrect_response = "Custom incorrect response."
-)
+quizlite_knit(..., correct_response = "Custom correct response.",
+  incorrect_response = "Custom incorrect response.", width = "100\%",
+  height = 400)
 }
 \arguments{
 \item{...}{A series of nested functions. In the form question("A sample question", answer("Answer 1"),
@@ -18,6 +16,10 @@ Mark the correct answer with a correct = TRUE.}
 \item{correct_response}{A text string. Message to give to user when response is correct}
 
 \item{incorrect_response}{A text string. Message to give to user when they are incorrect}
+
+\item{width}{Width for markdown display size.}
+
+\item{height}{height for markdown display size.}
 }
 \value{
 A html quiz inside a knitted html_document

@@ -11,28 +11,17 @@ library(quizlite)
 
 
 ```{r}
-quiz_db <- list(
-  counterFormat = 'Question %current of %total',
-  questions = list(
-    list(
-      q= 'A sample question?',
-      options= c('Answer 1', 'Answer 2', 'Answer 3', 'Answer 4'),
-      correctIndex = 1,
-      correctResponse = 'Custom correct response.',
-      incorrectResponse = 'Custom incorrect response.'
-    ),
-    list(
-      q= 'A new question?',
-      options= c('Answer 1', 'Answer 2'),
-      correctIndex = 0,
-      correctResponse = 'Custom correct response.',
-      incorrectResponse = 'Custom incorrect response.'
-    )
-  )
-)
+
 ```
 
 
-```{r, fig.height=10, fig.width=10}
-quizlite_knit(quiz_db, width = "100%", height = 400, units = "cm")
+```{r}
+quizlite_knit(question(text = 'wat',
+             answer('Answer 1'),
+             answer('Answer 2',correct = TRUE),
+             answer('Answer 3'),
+             answer('Answer 4')),
+    question(text = 'A new question?',
+             answer('Answer 1'),
+             answer('Answer 2', correct = TRUE)))
 ```

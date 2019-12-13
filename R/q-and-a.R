@@ -6,7 +6,7 @@
 #' @param text question or option text
 #' @param ... one or more questions or answers
 #'
-#' @return
+#' @return question output
 #' @export
 #'
 #' @examples
@@ -29,7 +29,7 @@ question <- function(text,
 #' @param correct correct - mark TRUE if correct, else leave blank, as default
 #'   is NULL.
 #'
-#' @return
+#' @return answer output
 #' @export
 #'
 #' @examples
