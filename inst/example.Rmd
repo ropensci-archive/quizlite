@@ -1,27 +1,32 @@
 ---
-title: "test"
-author: "Mitchell Stares"
-date: "12/12/2019"
-output: html_document
+title: "Using-quizlite"
+author: "Mitch Stares, Nick Tierney, Jackson Kwok"
+date: "13/12/2019"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{using-quizlite}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
 
 ```{r}
 library(quizlite)
 ```
 
-
 ```{r}
-
-```
-
-
-```{r}
-quizlite_knit(question(text = 'wat',
-             answer('Answer 1'),
-             answer('Answer 2',correct = TRUE),
-             answer('Answer 3'),
-             answer('Answer 4')),
-    question(text = 'A new question?',
-             answer('Answer 1'),
-             answer('Answer 2', correct = TRUE)))
+quizlite_knit(question(text = "What is better?",
+                  answer("R", correct = TRUE),
+                  answer("Python"),
+                  answer("Javascript"),
+                  answer("S")),
+              question(text = "Who is awesome?",
+                  answer("I am", correct = TRUE),
+                  answer("Not me")))
 ```

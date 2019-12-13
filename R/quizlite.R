@@ -67,7 +67,7 @@ quizlite <- function(...,
 #'                             answer("Not me")))
 quizlite_knit <- function(...,
                           correct_response = 'Custom correct response.',
-                          incorrect_response = 'Custom incorrect response.', width = "100%", height = 400) {
+                          incorrect_response = 'Custom incorrect response.', width = "100%", height = 500) {
   dots <- rlang::dots_list(...)
 
   quiz_db <-

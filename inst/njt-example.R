@@ -75,7 +75,7 @@ quizlite2 <- function(...,
   browseURL(file.path(dir0, "index.html"))
 }
 
-quizlite(question(text = "What is better?",
+list <- quizlite(question(text = "What is better?",
                   answer("R", correct = TRUE),
                   answer("Python")
                   ),

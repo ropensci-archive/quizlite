@@ -6,7 +6,7 @@
 \usage{
 quizlite_knit(..., correct_response = "Custom correct response.",
   incorrect_response = "Custom incorrect response.", width = "100\%",
-  height = 400)
+  height = 500)
 }
 \arguments{
 \item{...}{A series of nested functions. In the form question("A sample question", answer("Answer 1"),
