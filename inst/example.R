@@ -12,7 +12,7 @@ quiz_db <- list(
     list(
       q= 'A new question?',
       options= c('Answer 1', 'Answer 2'),
-      correctIndex = 0,
+      correctIndex = 1,
       correctResponse = 'Custom correct response.',
       incorrectResponse = 'Custom incorrect response.'
     )

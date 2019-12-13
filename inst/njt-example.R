@@ -20,7 +20,7 @@ quizlite_test <- function(...,
       questions = purrr::map(.x = dots,
                   .f = compose_q_list,
                   correct_response,
-                  incorrect_response)
+                  incorrect_response) %>% unname()
   )
 }
 
@@ -38,18 +38,18 @@ answer <- function(text,
 
 }
 
-#debugonce(quizlite_test)
+debugonce(quizlite_test)
 
 list_quiz <-
   quizlite_test(
-    question(text = 'What is better?',
-             answer('R'),
-             answer('Python',correct = TRUE),
-             answer('Javascript'),
-             answer('HTML')),
-    question(text = 'Who is awesome?',
-             answer('I am'),
-             answer('Not me', correct = TRUE))
+    question(text = 'wat',
+             answer('Answer 1'),
+             answer('Answer 2',correct = TRUE),
+             answer('Answer 3'),
+             answer('Answer 4')),
+    question(text = 'A new question?',
+             answer('Answer 1'),
+             answer('Answer 2', correct = TRUE))
     )
 
 quizlite(quiz_db = list_quiz)
