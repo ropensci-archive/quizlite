@@ -1,27 +1,23 @@
 compose_q_list <- function(dots,
                            correct_response,
                            incorrect_response){
-       questions = list(
-         #counterFormat = 'Question %current of %total', #Do not modify,
-         list(
+       list(
            q = dots[["q"]], # this is where our question list structure is generated
-           options = c(dots[["options"]]), # Takes the input from questions list, grabbing the named options vector
+           options = c(dots[["options"]][which(dots[["options"]] != "TRUE")]), # Takes the input from questions list, grabbing the named options vector
            correctIndex = (match("TRUE", dots[["options"]]) - 2),
            correctResponse = correct_response,
            incorrectResponse = incorrect_response
          )
-       )
 }
 
 quizlite_test <- function(...,
                           correct_response = 'Custom correct response.',
                           incorrect_response = 'Custom incorrect response.'
                           ){
-  browser()
   dots <- rlang::dots_list(...)
 
-  list(counterFormat = 'Question %current of %total', #Do not modify,
-       purrr::map(.x = dots,
+  list( counterFormat = 'Question %current of %total', #Do not modify,
+      questions = purrr::map(.x = dots,
                   .f = compose_q_list,
                   correct_response,
                   incorrect_response)
@@ -29,48 +25,69 @@ quizlite_test <- function(...,
 }
 
 question <- function(text,
-                     ...,
-                     correct = "Correct!",
-                     incorrect = "Incorrect."){
+                     ...){
   answers <- rlang::dots_list(...)
   return(list(q = text, options = unname(unlist(answers))))
 }
 
 answer <- function(text,
-                   correct = NULL,
-                   message = NULL){
+                   correct = NULL){
 
   list(option = text,
-       correct = correct,
-       message = message)
+       correct = correct)
 
 }
 
 #debugonce(quizlite_test)
-  quizlite_test(
-    question(text = "What is better?",
-             answer("R", correct = TRUE),
-             answer("Python"))
-  )
-
-
 
 list_quiz <-
   quizlite_test(
-    question(text = "What is better?",
-             answer("R", correct = TRUE),
-             answer("Python")),
-    question(text = "Who is awesome?",
-             answer("I am", correct = TRUE),
-             answer("Not me"))
+    question(text = 'What is better?',
+             answer('R'),
+             answer('Python',correct = TRUE),
+             answer('Javascript'),
+             answer('HTML')),
+    question(text = 'Who is awesome?',
+             answer('I am'),
+             answer('Not me', correct = TRUE))
     )
-
-
 
 quizlite(quiz_db = list_quiz)
 
 
-options_string <- unlist(list_quiz$questions[[1]]["options"])
+quizlite2 <- function(...,
+                     correct_response = 'Custom correct response.',
+                     incorrect_response = 'Custom incorrect response.'
+){
+  dots <- rlang::dots_list(...)
 
-list_quiz$questions[[1]][["options"]][["correct"]]
+  quiz_db <- list(counterFormat = 'Question %current of %total', #Do not modify,
+       questions = purrr::map(.x = dots,
+                              .f = compose_q_list,
+                              correct_response,
+                              incorrect_response)
+  )
+  dir0 <- tempdir()
+  #x <- sketch::source_r("inst/unused/main.R")
+  html <- system.file("index.html", package = "quizlite")
+  jsonlite::write_json(quiz_db, file.path(dir0, "quiz_db.json"), auto_unbox = T)
+  file.copy(html, file.path(dir0, "index.html"))
+  browseURL(file.path(dir0, "index.html"))
+}
+
+quizlite(question(text = "What is better?",
+                  answer("R", correct = TRUE),
+                  answer("Python")
+                  ),
+         question(text = "Who is awesome?",
+                  answer("I am"),
+                  answer("Not me", correct = TRUE)
+                  )
+         )
+
+
+
+
+
+
 

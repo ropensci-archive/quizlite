@@ -1,0 +1,1 @@
+{"counterFormat":"Question %current of %total","questions":[{"q":"A sample question?","options":["B","C","D","E"],"correctIndex":1,"correctResponse":"Custom correct response.","incorrectResponse":"Custom incorrect response."},{"q":"A new question?","options":["F","E"],"correctIndex":0,"correctResponse":"Custom correct response.","incorrectResponse":"Custom incorrect response."}]}
