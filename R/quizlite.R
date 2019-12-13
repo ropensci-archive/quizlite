@@ -39,7 +39,7 @@ quizlite <- function(...,
   html <- system.file("index.html", package = "quizlite")
   jsonlite::write_json(quiz_db, file.path(dir0, "quiz_db.json"), auto_unbox = T)
   file.copy(html, file.path(dir0, "index.html"))
-  browseURL(file.path(dir0, "index.html"))
+  utils::browseURL(file.path(dir0, "index.html"))
 }
 
 #' Knit a quizlite quiz inside a html_document
