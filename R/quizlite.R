@@ -25,7 +25,7 @@ quizlite <- function(quiz_db, ... ){
 #' @export
 #'
 quizlite_knit <- function(quiz_db, ... ){
-  dir0 <- "./temp/"
+  dir0 <- "./assests/"
   if(!dir.exists(dir0)){
     dir.create(dir0)
   }
