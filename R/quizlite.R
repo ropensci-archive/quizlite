@@ -77,8 +77,8 @@ quizlite_knit <- function(...,
         .f = compose_q_list,
         correct_response,
         incorrect_response
-      ) %>% unname()
-    ))
+      ))
+      )
   dir0 <- "./assests/"
   if(!dir.exists(dir0)){
     dir.create(dir0)
@@ -87,5 +87,5 @@ quizlite_knit <- function(...,
   jsonlite::write_json(quiz_db, file.path(dir0, "quiz_db.json"), auto_unbox = T)
   file.copy(html, file.path(dir0, "index.html"))
   #htmltools::attachDependencies(x = file.path(dir0, "index.html"), value = file.path(dir0, "quiz_db.json"))
-  htmltools::doRenderTags(htmltools::tags$iframe(src = file.path(dir0, "index.html"), ...))
+  htmltools::doRenderTags(htmltools::tags$iframe(src = file.path(dir0, "index.html")))
 }

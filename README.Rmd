@@ -29,9 +29,23 @@ devtools::install_github("ropenscilabs/quizlite")
 ```
 ## Example
 
-```{r quizlite-example}
+These examples currently don't work for github, but they will work when you run it locally!
+
+```{r quizlite-example, eval = FALSE}
 library(quizlite)
 quizlite(question(text = "What is better?",
+                             answer("R", correct = TRUE),
+                             answer("Python"),
+                             answer("Javascript"),
+                             answer("S")),
+                    question(text = "Who is awesome?",
+                             answer("I am", correct = TRUE),
+                             answer("Not me")))
+```
+
+
+```{r quizlite-knit, eval = FALSE}
+quizlite_knit(question(text = "What is better?",
                              answer("R", correct = TRUE),
                              answer("Python"),
                              answer("Javascript"),
