@@ -1,7 +1,10 @@
 ---
-title: "using-quizlite"
-output: rmarkdown::html_vignette
-authors: "Mitch Stares, Nick Tierney, Jackson Kwok"
+title: "Using-quizlite"
+author: "Mitch Stares, Nick Tierney, Jackson Kwok"
+date: "13/12/2019"
+output: 
+  rmarkdown::html_vignette:
+  keep_md: true
 vignette: >
   %\VignetteIndexEntry{using-quizlite}
   %\VignetteEngine{knitr::rmarkdown}
@@ -11,7 +14,8 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  root.dir = normalizePath("..")
 )
 ```
 
@@ -27,5 +31,7 @@ quizlite_knit(question(text = "What is better?",
                   answer("S")),
               question(text = "Who is awesome?",
                   answer("I am", correct = TRUE),
-                  answer("Not me")))
+                  answer("Not me")), 
+              correct_response = "Correct, Well done!", 
+              incorrect_response = "Come on, you can do better than that!")
 ```

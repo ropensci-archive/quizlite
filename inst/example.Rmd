@@ -28,5 +28,7 @@ quizlite_knit(question(text = "What is better?",
                   answer("S")),
               question(text = "Who is awesome?",
                   answer("I am", correct = TRUE),
-                  answer("Not me")))
+                  answer("Not me")), 
+              correct_response = "Correct, Well done!", 
+              incorrect_response = "Come on, you can do better than that!")
 ```
